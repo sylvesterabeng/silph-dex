@@ -1,11 +1,11 @@
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  --background: #ededed;
+  --foreground: #1b1b1b;
 }
 
 @media (prefers-color-scheme: dark) {
   :root {
-    --background: #0a0a0a;
+    --background: #1b1b1b;
     --foreground: #ededed;
   }
 }
@@ -38,5 +38,119 @@ a {
 @media (prefers-color-scheme: dark) {
   html {
     color-scheme: dark;
+  }
+}
+
+/* TODO: fix styling files */
+table {
+  border-collapse: separate;
+  border-spacing: 0 1em;
+}
+
+.table-row {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+th {
+  text-align: left;
+}
+
+tr {
+  padding-bottom: 10px;
+}
+
+td {
+  padding-right: 20px;
+}
+
+td img {
+  height: 40px;
+}
+
+.type-wrapper {
+  padding: 2px 6px;
+  border-radius: 4px;
+  color: color-contrast(var(--background) vs black, white);
+  color: #fff;
+  font-weight: 600;
+  font-size: 12px;
+  text-transform: capitalize;
+}
+
+/* Color */
+/* https://gist.github.com/apaleslimghost/0d25ec801ca4fc43317bcff298af43c3 */
+.type-normal {
+  background: #a8a77a;
+}
+.type-fire {
+  background: #ee8130;
+}
+.type-water {
+  background: #6390f0;
+}
+.type-electric {
+  background: #f7d02c;
+}
+.type-grass {
+  background: #7ac74c;
+}
+.type-ice {
+  background: #96d9d6;
+}
+.type-fighting {
+  background: #c22e28;
+}
+.type-poison {
+  background: #a33ea1;
+}
+.type-ground {
+  background: #e2bf65;
+}
+.type-flying {
+  background: #a98ff3;
+}
+.type-psychic {
+  background: #f95587;
+}
+.type-bug {
+  background: #a6b91a;
+}
+.type-rock {
+  background: #b6a136;
+}
+.type-ghost {
+  background: #735797;
+}
+.type-dragon {
+  background: #6f35fc;
+}
+.type-dark {
+  background: #705746;
+}
+.type-steel {
+  background: #b7b7ce;
+}
+.type-fairy {
+  background: #d685ad;
+}
+
+@media (max-width: 600px) {
+  td {
+    font-size: 11px;
+    padding-right: 8px;
+  }
+
+  td img {
+    height: 24px;
+  }
+
+  .type-wrapper {
+    font-size: 8px;
+  }
+
+  .table-row {
+    gap: 4px;
   }
 }
