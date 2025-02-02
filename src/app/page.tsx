@@ -7,7 +7,7 @@ import { fetchLatestGeneration } from './api/generation'
 const Home = async () => {
   const generation = await fetchLatestGeneration()
   // const latestGeneration = generation[generation.length - 1].id
-  const pokemons = await fetchPokedex(9)
+  const pokemons = await fetchPokedex()
 
   return (
     <div className={styles.page}>
