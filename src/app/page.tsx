@@ -24,7 +24,7 @@ const Home = async () => {
               </tr>
             </thead>
             <tbody>
-              {pokemons.map((pokemon, idx) => (
+              {pokemons.map((pokemon: any, idx: any) => (
                 <tr key={idx}>
                   <td>
                     <div className="table-row">
@@ -40,7 +40,7 @@ const Home = async () => {
                   <td>{pokemon.specy.names[0].name}</td>
                   <td>
                     <div className="table-row">
-                      {pokemon.types.map((t) => (
+                      {pokemon.types.map((t: any) => (
                         <div
                           key={`${pokemon.id}-${t.type.name}`}
                           className={`type-wrapper type-${t.type.name}`}
@@ -51,7 +51,7 @@ const Home = async () => {
                     </div>
                   </td>
                   <td>
-                    {pokemon.abilities.map((a) => (
+                    {pokemon.abilities.map((a: any) => (
                       <div
                         key={`${pokemon.id}-${a.ability.abilityNames[0].name}`}
                       >
