@@ -1,12 +1,13 @@
-import Image from 'next/image'
-import styles from './page.module.css'
-import { Pokedex } from '@components'
-import { fetchLatestGeneration } from '@api/generation'
+import React from 'react'
+
 import { fetchPokedex } from '@api/pokedex'
+import { Pokedex } from '@components'
+
+import styles from './page.module.css'
 
 // TODO: Create components & add designs
 const Home: React.FC = async () => {
-  const generation = await fetchLatestGeneration()
+  // const generation = await fetchLatestGeneration()
   // const latestGeneration = generation[generation.length - 1].id
   const pokemons = await fetchPokedex()
 

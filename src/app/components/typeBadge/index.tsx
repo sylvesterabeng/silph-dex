@@ -1,6 +1,6 @@
-import { Avatar, Badge, Box, Heading, Text } from '@radix-ui/themes'
+import { Badge, Text } from '@radix-ui/themes'
 import { accentColorPropDef } from '@radix-ui/themes/props'
-import React, { CSSProperties } from 'react'
+import React from 'react'
 
 type Type =
   | 'normal'
@@ -32,8 +32,6 @@ interface BadgeProps {
 }
 
 type Color = typeof accentColorPropDef.color.default
-
-const style: CSSProperties = { textTransform: 'capitalize' }
 
 const Index: React.FC<Props> = ({ type }) => {
   const getBadge = (): BadgeProps => {
@@ -78,13 +76,11 @@ const Index: React.FC<Props> = ({ type }) => {
   }
 
   return (
-    <Box className="badgeWrapper">
-      <Badge {...getBadge()}>
-        <Text style={{ textTransform: 'capitalize', fontSize: '10px' }}>
-          {type}
-        </Text>
-      </Badge>
-    </Box>
+    <Badge {...getBadge()}>
+      <Text style={{ textTransform: 'capitalize', fontSize: '10px' }}>
+        {type}
+      </Text>
+    </Badge>
   )
 }
 

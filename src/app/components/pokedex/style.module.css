@@ -1,0 +1,58 @@
+.wrapper {
+  overflow-x: scroll;
+  display: block;
+  width: 90vw;
+}
+
+.table {
+  border-collapse: separate;
+  border-spacing: 0 1em;
+}
+
+.th {
+  text-align: left;
+}
+
+.tr {
+  padding-bottom: 10px;
+}
+
+.td:not(:last-child) {
+  padding-right: 20px;
+}
+
+.sprite {
+  height: 40px;
+  width: 40px;
+}
+
+.types {
+  flex-direction: row;
+}
+
+.types span {
+  width: fit-content;
+}
+
+@media (max-width: 600px) {
+  .th {
+    font-size: 12px;
+  }
+
+  .td {
+    font-size: 11px;
+  }
+
+  .td:not(:last-child) {
+    padding-right: 10px;
+  }
+
+  .sprite {
+    height: 24px;
+    width: 24px;
+  }
+
+  .types {
+    flex-direction: column;
+  }
+}
