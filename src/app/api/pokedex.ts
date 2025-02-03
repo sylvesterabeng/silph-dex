@@ -62,7 +62,7 @@ const NATIONAL_POKEDEX = gql`
   }
 `
 
-export async function fetchPokedex(generation) {
+export async function fetchPokedex(generation?: number) {
   const { data } = await client.query({
     query: generation ? POKEDEX_BY_GENERATION : NATIONAL_POKEDEX,
     variables: { generation },
