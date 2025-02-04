@@ -13,7 +13,7 @@ const NATIONAL_POKEDEX = gql`
   query pokedex {
     pokedex: pokemon_v2_pokemon(
       order_by: { id: asc }
-      where: { id: { _lt: 30 } }
+      where: { id: { _lt: 10000 } }
     ) {
       id
       stats: pokemon_v2_pokemonstats {
@@ -50,9 +50,6 @@ export const fetchPokedex = async () => {
   const { data } = await client.query<PokedexQuery>({
     query: NATIONAL_POKEDEX,
   })
-
-  console.log('data.pokedex', data.pokedex)
-  console.log('convertToPokedex', convertToPokedex(data.pokedex))
 
   return convertToPokedex(data.pokedex)
 }
