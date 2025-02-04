@@ -13,15 +13,8 @@ interface Props {
 
 const Index: React.FC<Props> = ({ label, pokedex }) => {
   return (
-    <Box>
-      <Heading
-        size={{
-          initial: '6',
-          md: '8',
-        }}
-      >
-        {label}
-      </Heading>
+    <Flex direction="column" gap="8">
+      <Heading size="8">{label}</Heading>
       <Box className={styles.wrapper}>
         <table className={styles.table}>
           <thead>
@@ -31,27 +24,24 @@ const Index: React.FC<Props> = ({ label, pokedex }) => {
               <th className={styles.th}>Name</th>
               <th className={styles.th}>Type</th>
               <th className={styles.th}>Abilities</th>
+              <th className={styles.th}>HP</th>
+              <th className={styles.th}>Att</th>
+              <th className={styles.th}>Def</th>
+              <th className={styles.th}>S.Att</th>
+              <th className={styles.th}>S.Def</th>
+              <th className={styles.th}>Spd</th>
             </tr>
           </thead>
           <tbody>
-            {}
             {pokedex.map((pokemon, idx) => (
               <tr key={idx}>
                 <td className={styles.td}>
-                  {pokemon.sprite ? (
-                    <Avatar
-                      src={pokemon.sprite}
-                      className={styles.sprite}
-                      fallback=""
-                      color="gray"
-                    />
-                  ) : (
-                    <Avatar
-                      className={styles.sprite}
-                      fallback=""
-                      color="gray"
-                    />
-                  )}
+                  <Avatar
+                    src={pokemon.sprite}
+                    className={styles.sprite}
+                    fallback=""
+                    color="gray"
+                  />
                 </td>
                 <td className={styles.td}>
                   <Text as="span">#{String(pokemon.id).padStart(4, '0')}</Text>
@@ -74,12 +64,30 @@ const Index: React.FC<Props> = ({ label, pokedex }) => {
                     ))}
                   </Flex>
                 </td>
+                <td className={styles.td}>
+                  <Text as="span">{pokemon.stats.hp}</Text>
+                </td>
+                <td className={styles.td}>
+                  <Text as="span">{pokemon.stats.attack}</Text>
+                </td>
+                <td className={styles.td}>
+                  <Text as="span">{pokemon.stats.defense}</Text>
+                </td>
+                <td className={styles.td}>
+                  <Text as="span">{pokemon.stats.specialAttack}</Text>
+                </td>
+                <td className={styles.td}>
+                  <Text as="span">{pokemon.stats.specialDefense}</Text>
+                </td>
+                <td className={styles.td}>
+                  <Text as="span">{pokemon.stats.speed}</Text>
+                </td>
               </tr>
             ))}
           </tbody>
         </table>
       </Box>
-    </Box>
+    </Flex>
   )
 }
 

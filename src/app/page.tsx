@@ -3,7 +3,7 @@ import React from 'react'
 import { fetchPokedex } from '@api/pokedex'
 import { Pokedex } from '@components'
 
-import styles from './page.module.css'
+import styles from './page.module.scss'
 
 const Home: React.FC = async () => {
   const pokedex = await fetchPokedex()

@@ -10,20 +10,20 @@
 }
 
 .table {
-  border-collapse: separate;
-  border-spacing: 0 1em;
+  border-collapse: collapse;
 }
 
 .th {
   text-align: left;
 }
 
-.tr {
-  padding-bottom: 10px;
-}
+.td {
+  padding-top: 12px;
+  padding-bottom: 12px;
 
-.td:not(:last-child) {
-  padding-right: 20px;
+  &:not(:last-child) {
+    padding-right: 20px;
+  }
 }
 
 .sprite {
@@ -46,9 +46,11 @@
 
   .td {
     font-size: 11px;
+    padding-top: 8px;
+    padding-bottom: 8px;
 
     &:not(:last-child) {
-      padding-right: 10px;
+      padding-right: 8px;
     }
   }
 

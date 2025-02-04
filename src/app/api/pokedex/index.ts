@@ -13,9 +13,13 @@ const NATIONAL_POKEDEX = gql`
   query pokedex {
     pokedex: pokemon_v2_pokemon(
       order_by: { id: asc }
-      where: { id: { _lt: 10000 } }
+      where: { id: { _lt: 30 } }
     ) {
       id
+      stats: pokemon_v2_pokemonstats {
+        base_stat
+        stat_id
+      }
       types: pokemon_v2_pokemontypes {
         type: pokemon_v2_type {
           name
@@ -23,18 +27,16 @@ const NATIONAL_POKEDEX = gql`
       }
       abilities: pokemon_v2_pokemonabilities(distinct_on: ability_id) {
         ability: pokemon_v2_ability {
-          abilityNames: pokemon_v2_abilitynames(
-            where: { pokemon_v2_language: { name: { _eq: "en" } } }
-          ) {
+          abilityNames: pokemon_v2_abilitynames {
             name
+            language_id
           }
         }
       }
       specy: pokemon_v2_pokemonspecy {
-        names: pokemon_v2_pokemonspeciesnames(
-          where: { pokemon_v2_language: { name: { _eq: "en" } } }
-        ) {
+        names: pokemon_v2_pokemonspeciesnames {
           name
+          language_id
         }
       }
       sprites: pokemon_v2_pokemonsprites {
@@ -48,6 +50,9 @@ export const fetchPokedex = async () => {
   const { data } = await client.query<PokedexQuery>({
     query: NATIONAL_POKEDEX,
   })
+
+  console.log('data.pokedex', data.pokedex)
+  console.log('convertToPokedex', convertToPokedex(data.pokedex))
 
   return convertToPokedex(data.pokedex)
 }
