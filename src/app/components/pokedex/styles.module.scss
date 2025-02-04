@@ -3,10 +3,10 @@
   display: block;
   width: 90vw;
   scrollbar-width: none;
-}
 
-.wrapper::-webkit-scrollbar {
-  display: none;
+  &::-webkit-scrollbar {
+    display: none;
+  }
 }
 
 .table {
@@ -33,10 +33,10 @@
 
 .types {
   flex-direction: row;
-}
 
-.types span {
-  width: fit-content;
+  span {
+    width: fit-content;
+  }
 }
 
 @media (max-width: 600px) {
@@ -46,10 +46,10 @@
 
   .td {
     font-size: 11px;
-  }
 
-  .td:not(:last-child) {
-    padding-right: 10px;
+    &:not(:last-child) {
+      padding-right: 10px;
+    }
   }
 
   .sprite {

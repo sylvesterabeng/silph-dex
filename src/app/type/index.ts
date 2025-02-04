@@ -1,9 +1,12 @@
-import { Pokemon, OtherPokemonSprites, TYPES } from 'pokenode-ts'
+import { TYPES } from 'pokenode-ts'
 
-export interface PokemonSummary
-  extends Pick<Pokemon, 'id' | 'types' | 'abilities' | 'stats'> {
-  name: string
-  sprites?: OtherPokemonSprites['official-artwork']
+export interface PokemonSummary {
+  id?: number
+  abilities?: string[]
+  name?: string
+  sprite?: string
+  stats?: string
+  types?: string[]
 }
 
 export type Pokedex = PokemonSummary[]

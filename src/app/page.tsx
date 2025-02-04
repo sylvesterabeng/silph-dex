@@ -5,10 +5,7 @@ import { Pokedex } from '@components'
 
 import styles from './page.module.css'
 
-// TODO: Create components & add designs
 const Home: React.FC = async () => {
-  // const generation = await fetchLatestGeneration()
-  // const latestGeneration = generation[generation.length - 1].id
   const pokedex = await fetchPokedex()
 
   return (

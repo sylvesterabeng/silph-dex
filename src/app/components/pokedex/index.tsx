@@ -1,10 +1,10 @@
 import { Avatar, Box, Flex, Heading, Text } from '@radix-ui/themes'
-import { Pokedex, PokemonType } from '@type'
 import React from 'react'
 
 import { TypeBadge } from '@components'
+import { Pokedex, PokemonType } from '@type'
 
-import styles from './style.module.css'
+import styles from './styles.module.scss'
 
 interface Props {
   label: string
@@ -38,9 +38,9 @@ const Index: React.FC<Props> = ({ label, pokedex }) => {
             {pokedex.map((pokemon, idx) => (
               <tr key={idx}>
                 <td className={styles.td}>
-                  {pokemon.sprites?.front_default ? (
+                  {pokemon.sprite ? (
                     <Avatar
-                      src={pokemon.sprites?.front_default}
+                      src={pokemon.sprite}
                       className={styles.sprite}
                       fallback=""
                       color="gray"
@@ -59,20 +59,18 @@ const Index: React.FC<Props> = ({ label, pokedex }) => {
                 <td className={styles.td}>{pokemon.name}</td>
                 <td className={styles.td}>
                   <Flex as="span" gap="1" className={styles.types}>
-                    {pokemon.types.map((t) => (
+                    {pokemon.types?.map((type) => (
                       <TypeBadge
-                        type={t.type.name as PokemonType}
-                        key={`${pokemon.id}-${t.type.name}`}
+                        type={type as PokemonType}
+                        key={`${pokemon.id}-${type}`}
                       ></TypeBadge>
                     ))}
                   </Flex>
                 </td>
                 <td className={styles.td}>
                   <Flex as="span" direction="column">
-                    {pokemon.abilities.map((a, idx) => (
-                      <span key={`${pokemon.id}-type-${idx}`}>
-                        {a.ability.name}
-                      </span>
+                    {pokemon.abilities?.map((ability, idx) => (
+                      <span key={`${pokemon.id}-type-${idx}`}>{ability}</span>
                     ))}
                   </Flex>
                 </td>

@@ -1,6 +1,9 @@
 import { Badge, Text, BadgeProps } from '@radix-ui/themes'
-import { PokemonType } from '@type'
 import React from 'react'
+
+import { PokemonType } from '@type'
+
+import styles from './styles.module.scss'
 
 interface Props {
   type: PokemonType
@@ -52,9 +55,7 @@ const Index: React.FC<Props> = ({ type }) => {
 
   return (
     <Badge {...getBadge()}>
-      <Text style={{ textTransform: 'capitalize', fontSize: '10px' }}>
-        {type}
-      </Text>
+      <Text className={styles.text}>{type}</Text>
     </Badge>
   )
 }

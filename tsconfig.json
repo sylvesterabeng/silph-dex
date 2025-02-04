@@ -21,6 +21,7 @@
     "paths": {
       "@api/*": ["./src/app/api/*"],
       "@components": ["./src/app/components"],
+      "@generated/*": ["./generated/*"],
       "@presenter": ["./src/app/presenter"],
       "@type": ["./src/app/type"]
     }
