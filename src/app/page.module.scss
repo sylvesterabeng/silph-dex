@@ -7,7 +7,9 @@
   --button-secondary-hover: #f2f2f2;
 
   min-height: 100svh;
+  max-width: 1440px;
   padding: 80px;
+  margin: 0 auto;
   font-family: var(--font-geist-sans);
 }
 
@@ -24,6 +26,7 @@
 
 .main {
   display: flex;
+  width: 100%;
   flex-direction: column;
 }
 
