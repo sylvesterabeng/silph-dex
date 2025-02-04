@@ -9,12 +9,12 @@ import styles from './page.module.css'
 const Home: React.FC = async () => {
   // const generation = await fetchLatestGeneration()
   // const latestGeneration = generation[generation.length - 1].id
-  const pokemons = await fetchPokedex()
+  const pokedex = await fetchPokedex()
 
   return (
     <div className={styles.page}>
       <main className={styles.main}>
-        <Pokedex label="National Pokedex" pokemons={pokemons} />
+        <Pokedex label="National Pokedex" pokedex={pokedex} />
       </main>
     </div>
   )

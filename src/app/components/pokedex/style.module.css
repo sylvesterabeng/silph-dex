@@ -2,6 +2,11 @@
   overflow-x: scroll;
   display: block;
   width: 90vw;
+  scrollbar-width: none;
+}
+
+.wrapper::-webkit-scrollbar {
+  display: none;
 }
 
 .table {

@@ -20,7 +20,9 @@
     ],
     "paths": {
       "@api/*": ["./src/app/api/*"],
-      "@components": ["./src/app/components"]
+      "@components": ["./src/app/components"],
+      "@presenter": ["./src/app/presenter"],
+      "@type": ["./src/app/type"]
     }
   },
   "include": [
