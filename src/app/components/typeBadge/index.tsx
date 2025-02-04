@@ -1,37 +1,13 @@
-import { Badge, Text } from '@radix-ui/themes'
-import { accentColorPropDef } from '@radix-ui/themes/props'
+import { Badge, Text, BadgeProps } from '@radix-ui/themes'
 import React from 'react'
 
-type Type =
-  | 'normal'
-  | 'fire'
-  | 'water'
-  | 'electric'
-  | 'grass'
-  | 'ice'
-  | 'fighting'
-  | 'poison'
-  | 'ground'
-  | 'flying'
-  | 'psychic'
-  | 'bug'
-  | 'rock'
-  | 'ghost'
-  | 'dragon'
-  | 'dark'
-  | 'steel'
-  | 'fairy'
+import { PokemonType } from '@type'
+
+import styles from './styles.module.scss'
 
 interface Props {
-  type: Type
+  type: PokemonType
 }
-
-interface BadgeProps {
-  color: Color
-  highContrast?: boolean
-}
-
-type Color = typeof accentColorPropDef.color.default
 
 const Index: React.FC<Props> = ({ type }) => {
   const getBadge = (): BadgeProps => {
@@ -72,14 +48,14 @@ const Index: React.FC<Props> = ({ type }) => {
         return { color: 'gray' }
       case 'fairy':
         return { color: 'pink' }
+      default:
+        return {}
     }
   }
 
   return (
     <Badge {...getBadge()}>
-      <Text style={{ textTransform: 'capitalize', fontSize: '10px' }}>
-        {type}
-      </Text>
+      <Text className={styles.text}>{type}</Text>
     </Badge>
   )
 }

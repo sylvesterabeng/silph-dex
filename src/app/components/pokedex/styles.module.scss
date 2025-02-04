@@ -1,24 +1,23 @@
 .wrapper {
   overflow-x: scroll;
   display: block;
-  width: 90vw;
+  scrollbar-width: none;
+
+  &::-webkit-scrollbar {
+    display: none;
+  }
 }
 
 .table {
-  border-collapse: separate;
-  border-spacing: 0 1em;
+  border-collapse: collapse;
 }
 
 .th {
   text-align: left;
 }
 
-.tr {
-  padding-bottom: 10px;
-}
-
-.td:not(:last-child) {
-  padding-right: 20px;
+.avatarWrapper {
+  width: 40px;
 }
 
 .sprite {
@@ -28,23 +27,21 @@
 
 .types {
   flex-direction: row;
-}
 
-.types span {
-  width: fit-content;
+  span {
+    width: fit-content;
+  }
 }
 
 @media (max-width: 600px) {
-  .th {
-    font-size: 12px;
-  }
-
-  .td {
+  .th,
+  .td,
+  .tr {
     font-size: 11px;
   }
 
-  .td:not(:last-child) {
-    padding-right: 10px;
+  .avatarWrapper {
+    width: 24px;
   }
 
   .sprite {
