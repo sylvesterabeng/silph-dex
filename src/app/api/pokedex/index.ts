@@ -13,7 +13,7 @@ const NATIONAL_POKEDEX = gql`
   query pokedex {
     pokedex: pokemon_v2_pokemon(
       order_by: { id: asc }
-      where: { id: { _lt: 100 } }
+      where: { id: { _lt: 10000 } }
     ) {
       id
       key: name
