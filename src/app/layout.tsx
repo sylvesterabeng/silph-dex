@@ -1,4 +1,5 @@
 import { Theme } from '@radix-ui/themes'
+import { Analytics } from '@vercel/analytics/next'
 import { Geist, Geist_Mono } from 'next/font/google'
 import React from 'react'
 
@@ -32,6 +33,7 @@ export default function RootLayout({
       <body className={`${geistSans.variable} ${geistMono.variable}`}>
         {/* TODO: Add light mode option */}
         <Theme appearance="dark">{children}</Theme>
+        <Analytics />
       </body>
     </html>
   )
