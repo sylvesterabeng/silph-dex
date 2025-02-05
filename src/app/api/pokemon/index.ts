@@ -8,8 +8,5 @@ export const fetchPokemon = async (name: string): Promise<Pokemon> => {
   const pokemon = await api.getPokemonByName(name)
   const species = await api.getPokemonSpeciesById(pokemon.id)
 
-  console.log(pokemon)
-  console.log(species)
-
   return convertToPokemon(pokemon, species)
 }

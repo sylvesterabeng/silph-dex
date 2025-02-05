@@ -11,7 +11,7 @@ const Home: React.FC = async () => {
   return (
     <div className={styles.page}>
       <main className={styles.main}>
-        <Pokedex label="National Pokedex" pokedex={pokedex} />
+        <Pokedex label="Silph Dex" pokedex={pokedex} />
       </main>
     </div>
   )
