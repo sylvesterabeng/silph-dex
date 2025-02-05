@@ -61,7 +61,7 @@ const Index: React.FC<Props> = ({ label, pokedex }) => {
           <Table.Body>
             {pokedex.map((pokemonSummary) => (
               <TableRow
-                key={pokemonSummary.id}
+                key={pokemonSummary.dexNumber}
                 pokemonSummary={pokemonSummary}
               />
             ))}

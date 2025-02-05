@@ -1,5 +1,7 @@
+'use client'
 import { Flex, Table, Text } from '@radix-ui/themes'
 import Image from 'next/image'
+import { useRouter } from 'next/navigation'
 import React from 'react'
 
 import { TypeBadge } from '@components'
@@ -12,8 +14,14 @@ interface Props {
 }
 
 const TableRow: React.FC<Props> = ({ pokemonSummary }) => {
+  const router = useRouter()
+
+  const onRowClick = () => {
+    router.push(`/${pokemonSummary.name}`)
+  }
+
   return (
-    <Table.Row align="center">
+    <Table.Row align="center" onClick={onRowClick}>
       <Table.Cell className={`${styles.td} ${styles.avatarWrapper}`}>
         <Image
           src={pokemonSummary.sprite || ''}
@@ -24,7 +32,7 @@ const TableRow: React.FC<Props> = ({ pokemonSummary }) => {
         />
       </Table.Cell>
       <Table.Cell className={styles.td}>
-        <Text as="span">#{String(pokemonSummary.id).padStart(4, '0')}</Text>
+        <Text as="span">{pokemonSummary.dexNumber}</Text>
       </Table.Cell>
       <Table.Cell className={styles.td}>{pokemonSummary.name}</Table.Cell>
       <Table.Cell className={styles.td}>
@@ -32,7 +40,7 @@ const TableRow: React.FC<Props> = ({ pokemonSummary }) => {
           {pokemonSummary.types?.map((type) => (
             <TypeBadge
               type={type as PokemonType}
-              key={`${pokemonSummary.id}-${type}`}
+              key={`${pokemonSummary.dexNumber}-${type}`}
             ></TypeBadge>
           ))}
         </Flex>
@@ -40,7 +48,9 @@ const TableRow: React.FC<Props> = ({ pokemonSummary }) => {
       <Table.Cell className={styles.td}>
         <Flex as="span" direction="column">
           {pokemonSummary.abilities?.map((ability, idx) => (
-            <span key={`${pokemonSummary.id}-type-${idx}`}>{ability}</span>
+            <span key={`${pokemonSummary.dexNumber}-type-${idx}`}>
+              {ability}
+            </span>
           ))}
         </Flex>
       </Table.Cell>

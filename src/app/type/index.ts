@@ -5,7 +5,7 @@ import {
 } from 'pokenode-ts'
 
 export interface PokemonSummary {
-  id: number
+  dexNumber: string
   abilities: string[]
   name: string
   sprite?: string

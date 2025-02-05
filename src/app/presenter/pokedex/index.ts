@@ -4,7 +4,7 @@ import { LANGUAGES, Pokedex, PokemonSummary, STATS } from '@type'
 const index = (pokedex: PokedexQuery['pokedex']): Pokedex => {
   return pokedex.map((pokemon): PokemonSummary => {
     return {
-      id: pokemon.id,
+      dexNumber: `#${String(pokemon.id).padStart(4, '0')}`,
       name:
         pokemon.specy?.names.find((n) => n.language_id === LANGUAGES.EN)
           ?.name || '',
