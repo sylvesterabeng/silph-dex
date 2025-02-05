@@ -25,7 +25,7 @@ const index = (
       weight: pokemon.weight / 10,
       /** gender: The chance of this Pokémon being female, in eighths; or -1 for genderless */
       genderRate:
-        species.gender_rate < 0
+        species.gender_rate > 0
           ? `Male: ${species.gender_rate / 8}% Female: ${1 - species.gender_rate / 8}%`
           : 'Gender Unknown', // TODO
       eggGroup: species.egg_groups.map((e) => e.name),
