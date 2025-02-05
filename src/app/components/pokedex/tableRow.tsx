@@ -1,7 +1,6 @@
-'use client'
-import { Flex, Table, Text } from '@radix-ui/themes'
+import { Flex, Table } from '@radix-ui/themes'
 import Image from 'next/image'
-import { useRouter } from 'next/navigation'
+import Link from 'next/link'
 import React from 'react'
 
 import { TypeBadge } from '@components'
@@ -14,14 +13,8 @@ interface Props {
 }
 
 const TableRow: React.FC<Props> = ({ pokemonSummary }) => {
-  const router = useRouter()
-
-  const onRowClick = () => {
-    router.push(`/${pokemonSummary.name}`)
-  }
-
   return (
-    <Table.Row align="center" onClick={onRowClick}>
+    <Table.Row align="center">
       <Table.Cell className={`${styles.td} ${styles.avatarWrapper}`}>
         <Image
           src={pokemonSummary.sprite || ''}
@@ -31,10 +24,10 @@ const TableRow: React.FC<Props> = ({ pokemonSummary }) => {
           height={40}
         />
       </Table.Cell>
+      <Table.Cell className={styles.td}>{pokemonSummary.dexNumber}</Table.Cell>
       <Table.Cell className={styles.td}>
-        <Text as="span">{pokemonSummary.dexNumber}</Text>
+        <Link href={pokemonSummary.key}>{pokemonSummary.name}</Link>
       </Table.Cell>
-      <Table.Cell className={styles.td}>{pokemonSummary.name}</Table.Cell>
       <Table.Cell className={styles.td}>
         <Flex as="span" gap="1" className={styles.types}>
           {pokemonSummary.types?.map((type) => (
@@ -54,23 +47,21 @@ const TableRow: React.FC<Props> = ({ pokemonSummary }) => {
           ))}
         </Flex>
       </Table.Cell>
+      <Table.Cell className={styles.td}>{pokemonSummary.stats.hp}</Table.Cell>
       <Table.Cell className={styles.td}>
-        <Text as="span">{pokemonSummary.stats.hp}</Text>
+        {pokemonSummary.stats.attack}
       </Table.Cell>
       <Table.Cell className={styles.td}>
-        <Text as="span">{pokemonSummary.stats.attack}</Text>
+        {pokemonSummary.stats.defense}
       </Table.Cell>
       <Table.Cell className={styles.td}>
-        <Text as="span">{pokemonSummary.stats.defense}</Text>
+        {pokemonSummary.stats.specialAttack}
       </Table.Cell>
       <Table.Cell className={styles.td}>
-        <Text as="span">{pokemonSummary.stats.specialAttack}</Text>
+        {pokemonSummary.stats.specialDefense}
       </Table.Cell>
       <Table.Cell className={styles.td}>
-        <Text as="span">{pokemonSummary.stats.specialDefense}</Text>
-      </Table.Cell>
-      <Table.Cell className={styles.td}>
-        <Text as="span">{pokemonSummary.stats.speed}</Text>
+        {pokemonSummary.stats.speed}
       </Table.Cell>
     </Table.Row>
   )

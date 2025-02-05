@@ -30,10 +30,6 @@
   flex-direction: column;
 }
 
-/* Enable hover only on non-touch devices */
-@media (hover: hover) and (pointer: fine) {
-}
-
 @media (max-width: 600px) {
   .page {
     padding: 24px 16px;
