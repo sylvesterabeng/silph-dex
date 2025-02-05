@@ -1,0 +1,26 @@
+.pokemonDetail__container {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  padding: 64px 0;
+}
+
+.pokemonDetail__sprite {
+  height: 360px;
+  width: 360px;
+}
+
+@media (max-width: 767px) {
+  .pokemonDetail__container {
+    padding-top: 24px;
+  }
+
+  .pokemonDetail__sprite {
+    height: 280px;
+    width: 280px;
+  }
+}
+
+dl dt.rt-DataListLabel {
+  min-width: 64px;
+}

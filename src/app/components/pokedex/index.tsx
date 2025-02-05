@@ -19,7 +19,7 @@ const Index: React.FC<Props> = ({ label, pokedex }) => {
         <Table.Root
           className={styles.table}
           variant="surface"
-          size={{ initial: '1', md: '2' }}
+          size={{ initial: '1', sm: '2' }}
         >
           <Table.Header>
             <Table.Row align="center">

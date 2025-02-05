@@ -25,6 +25,19 @@ export interface PokemonSummary {
   types: string[]
 }
 
+export interface BasicInfo {
+  height: number
+  weight: number
+  genderRate: string
+  eggGroup: string[]
+  eggCycle: number
+  evYield: string
+  catchRate: number
+  baseFriendship: number
+  baseExp: number
+  growthRate: string
+}
+
 interface Ability {
   name: string
   isHidden: boolean
@@ -32,13 +45,12 @@ interface Ability {
 
 export interface Pokemon {
   abilities: Ability[]
+  basicInfo: BasicInfo
   dexNumber: string
   genus: string
-  height: number
   name: string
   sprite?: string | null
   types: string[]
-  weight: number
 }
 
 export type Pokedex = PokemonSummary[]
