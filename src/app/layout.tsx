@@ -4,7 +4,7 @@ import React from 'react'
 
 import type { Metadata } from 'next'
 
-import './globals.css'
+import './globals.scss'
 import '@radix-ui/themes/styles.css'
 
 const geistSans = Geist({

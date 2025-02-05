@@ -16,6 +16,7 @@ const NATIONAL_POKEDEX = gql`
       where: { id: { _lt: 10000 } }
     ) {
       id
+      key: name
       stats: pokemon_v2_pokemonstats {
         base_stat
         stat_id
