@@ -5,7 +5,14 @@ import {
   PokemonSpeciesResponse,
 } from '@type'
 
-import { isEnglish } from '../../utils'
+import {
+  capitalize,
+  capitalizeAndRemoveHypens,
+  convertGenderRate,
+  convertHeightToMeter,
+  convertWeightToKilogram,
+  isEnglish,
+} from '../../utils'
 
 const index = (
   pokemon: PokemonResponse,
@@ -19,22 +26,18 @@ const index = (
       }
     }),
     basicInfo: {
-      /** pokemon.height: The height of this Pokémon in decimetres */
-      height: pokemon.height / 10,
-      /** pokemon.weight: The weight of this Pokémon in hectograms */
-      weight: pokemon.weight / 10,
-      /** gender: The chance of this Pokémon being female, in eighths; or -1 for genderless */
-      genderRate:
-        species.gender_rate > 0
-          ? `Male: ${species.gender_rate / 8}% Female: ${1 - species.gender_rate / 8}%`
-          : 'Gender Unknown', // TODO
-      eggGroup: species.egg_groups.map((e) => e.name),
+      /** Convert from decimeter to meter */
+      height: convertHeightToMeter(pokemon.height),
+      /** Convert from hectogram to kilogram */
+      weight: convertWeightToKilogram(pokemon.weight),
+      genderRate: convertGenderRate(species.gender_rate),
+      eggGroup: species.egg_groups.map((e) => capitalize(e.name)),
       eggCycle: species.hatch_counter,
       evYield: 'WIP',
       catchRate: species.capture_rate,
       baseFriendship: species.base_happiness,
       baseExp: pokemon.base_experience,
-      growthRate: species.growth_rate.name,
+      growthRate: capitalizeAndRemoveHypens(species.growth_rate.name),
     },
     dexNumber: `#${String(pokemon.id).padStart(4, '0')}`,
     genus:
