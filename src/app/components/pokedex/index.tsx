@@ -13,8 +13,8 @@ interface Props {
 
 const Index: React.FC<Props> = ({ label, pokedex }) => {
   return (
-    <Flex direction="column" gap="8">
-      <Heading size="6" align="center">
+    <Flex direction="column" gap={{ initial: '4', sm: '8' }}>
+      <Heading size="6" align="center" mt={{ initial: '8', sm: '0' }}>
         {label}
       </Heading>
       <Box className={styles.wrapper}>

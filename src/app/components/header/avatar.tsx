@@ -3,15 +3,11 @@ import { Avatar, Box, Flex, Skeleton, Text } from '@radix-ui/themes'
 import { accentColorPropDef } from '@radix-ui/themes/props'
 import React from 'react'
 
-import { UserAvatar } from '@type'
+import { fetchAvatar } from '@api/avatar'
 
 import styles from './styles.module.scss'
 
-interface Props {
-  avatar: UserAvatar
-}
-
-const Index: React.FC<Props> = ({ avatar }) => {
+const Index: React.FC = () => {
   const [avatarState, setAvatarState] = React.useState({
     name: '',
     color: 'gray',
@@ -21,17 +17,9 @@ const Index: React.FC<Props> = ({ avatar }) => {
   const { name, color, sprite } = avatarState
 
   React.useEffect(() => {
-    const nameData = sessionStorage.getItem('avatar_name') || ''
-    const colorData = sessionStorage.getItem('avatar_color') || ''
-    const spriteData = sessionStorage.getItem('avatar_sprite') || ''
+    async function fetch() {
+      const avatar = await fetchAvatar()
 
-    setAvatarState({
-      name: nameData,
-      color: colorData,
-      sprite: spriteData,
-    })
-
-    if (!nameData || !colorData || !spriteData) {
       sessionStorage.setItem('avatar_name', avatar.name)
       sessionStorage.setItem('avatar_color', avatar.iconColor)
       sessionStorage.setItem('avatar_sprite', avatar.sprite)
@@ -42,7 +30,23 @@ const Index: React.FC<Props> = ({ avatar }) => {
         sprite: avatar.sprite,
       })
     }
-  }, [avatar.iconColor, avatar.name, avatar.sprite])
+
+    setTimeout(() => {
+      const nameData = sessionStorage.getItem('avatar_name') || ''
+      const colorData = sessionStorage.getItem('avatar_color') || ''
+      const spriteData = sessionStorage.getItem('avatar_sprite') || ''
+
+      setAvatarState({
+        name: nameData,
+        color: colorData,
+        sprite: spriteData,
+      })
+
+      if (!nameData || !colorData || !spriteData) {
+        fetch()
+      }
+    }, 500)
+  }, [])
 
   return (
     <Flex align="center" gap="2">

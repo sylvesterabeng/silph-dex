@@ -2,14 +2,10 @@ import { Flex, Text } from '@radix-ui/themes'
 import Link from 'next/link'
 import React from 'react'
 
-import { fetchAvatar } from '@api/avatar'
-
 import Avatar from './avatar'
 import styles from './styles.module.scss'
 
 const Index: React.FC = async () => {
-  const avatar = await fetchAvatar()
-
   return (
     <Flex
       p={{ initial: '4', sm: '5' }}
@@ -25,7 +21,7 @@ const Index: React.FC = async () => {
           SILPH
         </Text>
       </Link>
-      <Avatar avatar={avatar} />
+      <Avatar />
     </Flex>
   )
 }
