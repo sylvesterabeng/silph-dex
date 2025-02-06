@@ -23,7 +23,8 @@
       "@components": ["./src/app/components"],
       "@generated/*": ["./generated/*"],
       "@presenter": ["./src/app/presenter"],
-      "@type": ["./src/app/type"]
+      "@type": ["./src/app/type"],
+      "@utils": ["./src/app/utils"]
     }
   },
   "include": [

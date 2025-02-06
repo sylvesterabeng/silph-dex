@@ -10,6 +10,25 @@
   width: 360px;
 }
 
+.pokemonDetail__flavorText {
+  width: 35vw;
+  max-width: 500px;
+}
+
+dl dt.rt-DataListLabel {
+  min-width: 64px;
+}
+
+.rt-DataListLabel:before,
+.rt-DataListValue:before {
+  display: none;
+}
+
+.pokemonDetail__genderRate,
+.pokemonDetail__ev {
+  flex-direction: column;
+}
+
 @media (max-width: 767px) {
   .pokemonDetail__container {
     padding-top: 24px;
@@ -19,8 +38,9 @@
     height: 280px;
     width: 280px;
   }
-}
 
-dl dt.rt-DataListLabel {
-  min-width: 64px;
+  .pokemonDetail__flavorText {
+    width: 80vw;
+    max-width: 500px;
+  }
 }

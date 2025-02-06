@@ -1,19 +1,23 @@
 import {
+  capitalize,
+  capitalizeAndRemoveHypens,
+  convertGenderRate,
+  convertHeightToMeter,
+  convertToNationalDexNo,
+  convertWeightToKilogram,
+  getEvfromStats,
+  getLatestFlavorText,
+  isEnglish,
+} from '@utils'
+
+import {
   Pokemon,
   PokemonLanguage,
   PokemonResponse,
   PokemonSpeciesResponse,
 } from '@type'
 
-import {
-  capitalize,
-  capitalizeAndRemoveHypens,
-  convertGenderRate,
-  convertHeightToMeter,
-  convertWeightToKilogram,
-  isEnglish,
-} from '../../utils'
-
+// Convert pokenode-ts results to local pokedex type
 const index = (
   pokemon: PokemonResponse,
   species: PokemonSpeciesResponse
@@ -33,17 +37,17 @@ const index = (
       genderRate: convertGenderRate(species.gender_rate),
       eggGroup: species.egg_groups.map((e) => capitalize(e.name)),
       eggCycle: species.hatch_counter,
-      evYield: 'WIP',
+      evYield: getEvfromStats(pokemon.stats),
       catchRate: species.capture_rate,
       baseFriendship: species.base_happiness,
       baseExp: pokemon.base_experience,
       growthRate: capitalizeAndRemoveHypens(species.growth_rate.name),
     },
-    dexNumber: `#${String(pokemon.id).padStart(4, '0')}`,
+    dexNumber: convertToNationalDexNo(pokemon.id),
+    flavorText: getLatestFlavorText(species.flavor_text_entries),
     genus:
       species.genera.find((g) => isEnglish(g.language.name as PokemonLanguage))
         ?.genus || '',
-
     name:
       species.names.find((g) => isEnglish(g.language.name as PokemonLanguage))
         ?.name || '',

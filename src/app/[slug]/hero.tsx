@@ -27,16 +27,23 @@ const Hero: React.FC<Props> = ({ pokemon }) => {
       <Flex
         direction="column"
         align={{ initial: 'center', sm: 'start' }}
-        gap="2"
+        gap="1"
       >
         <Text color="gray" size={{ initial: '1', sm: '2' }}>
           {pokemon.dexNumber}
         </Text>
         <Heading size="9">{pokemon.name}</Heading>
-        <Text color="gray" size={{ initial: '1', sm: '2' }}>
-          {pokemon.genus}
+        <Text size={{ initial: '1', sm: '2' }}>{pokemon.genus}</Text>
+
+        <Text
+          className="pokemonDetail__flavorText"
+          size={{ initial: '1', sm: '2' }}
+          color="gray"
+          align={{ initial: 'center', sm: 'left' }}
+        >
+          {pokemon.flavorText}
         </Text>
-        <Flex as="span" gap="2" mt="1">
+        <Flex as="span" gap="2" mt="2">
           {pokemon.types?.map((type) => (
             <TypeBadge key={type} type={type as PokemonType}></TypeBadge>
           ))}

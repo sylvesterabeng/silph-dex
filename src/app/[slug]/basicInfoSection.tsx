@@ -9,7 +9,7 @@ interface Props {
 
 const BasicInfoSection: React.FC<Props> = ({ basicInfo }) => {
   return (
-    <Flex gap="8">
+    <Flex gap="8" align="start">
       <DataList.Root
         size={{ initial: '1', sm: '2' }}
         orientation={{ initial: 'vertical', sm: 'horizontal' }}
@@ -30,7 +30,11 @@ const BasicInfoSection: React.FC<Props> = ({ basicInfo }) => {
 
         <DataList.Item>
           <DataList.Label>Gender ratio</DataList.Label>
-          <Text>{basicInfo.genderRate}</Text>
+          <DataList.Value className="pokemonDetail__genderRate">
+            {basicInfo.genderRate.map((gender) => (
+              <Text key={gender}>{gender}</Text>
+            ))}
+          </DataList.Value>
         </DataList.Item>
 
         <DataList.Item>
@@ -54,8 +58,10 @@ const BasicInfoSection: React.FC<Props> = ({ basicInfo }) => {
       >
         <DataList.Item>
           <DataList.Label>EV yield</DataList.Label>
-          <DataList.Value>
-            <Text>{basicInfo.evYield}</Text>
+          <DataList.Value className="pokemonDetail__ev">
+            {basicInfo.evYield.map((ev) => (
+              <Text key={ev}>{ev}</Text>
+            ))}
           </DataList.Value>
         </DataList.Item>
 

@@ -1,6 +1,9 @@
+import { convertToNationalDexNo } from '@utils'
+
 import { PokedexQuery } from '@generated/graphql'
 import { LANGUAGES, Pokedex, PokemonSummary, STATS } from '@type'
 
+// Convert graphql results to local pokedex type
 const index = (pokedex: PokedexQuery['pokedex']): Pokedex => {
   return pokedex.map((pokemon): PokemonSummary => {
     return {
@@ -10,7 +13,7 @@ const index = (pokedex: PokedexQuery['pokedex']): Pokedex => {
             ?.name || ''
         )
       }),
-      dexNumber: `#${String(pokemon.id).padStart(4, '0')}`,
+      dexNumber: convertToNationalDexNo(pokemon.id),
       key: pokemon.key,
       name:
         pokemon.specy?.names.find((n) => n.language_id === LANGUAGES.EN)

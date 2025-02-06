@@ -3,7 +3,10 @@ import { LANGUAGES, TYPES } from 'pokenode-ts'
 export type {
   Pokemon as PokemonResponse,
   PokemonSpecies as PokemonSpeciesResponse,
+  PokemonStat as PokemonStatResponse,
+  FlavorText as FlavorTextResponse,
 } from 'pokenode-ts'
+
 export { LANGUAGES, STATS } from 'pokenode-ts'
 
 interface Stats {
@@ -28,10 +31,10 @@ export interface PokemonSummary {
 export interface BasicInfo {
   height: number
   weight: number
-  genderRate: string
+  genderRate: string[]
   eggGroup: string[]
   eggCycle: number
-  evYield: string
+  evYield: string[]
   catchRate: number
   baseFriendship: number
   baseExp: number
@@ -47,6 +50,7 @@ export interface Pokemon {
   abilities: Ability[]
   basicInfo: BasicInfo
   dexNumber: string
+  flavorText: string
   genus: string
   name: string
   sprite?: string | null
