@@ -1,0 +1,39 @@
+.header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  background-color: var(--gray-1);
+  border-bottom: 1px solid var(--gray-2);
+  z-index: 1;
+
+  .icon {
+    font-family: var(--font-protest);
+  }
+
+  a {
+    text-decoration: none;
+  }
+}
+
+.avatar {
+  position: relative;
+}
+
+.sprite {
+  z-index: 1;
+
+  span {
+    background-color: unset;
+  }
+
+  img {
+    transform: scale(0.7);
+  }
+}
+
+.background {
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: -1;
+}

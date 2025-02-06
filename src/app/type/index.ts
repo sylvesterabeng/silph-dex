@@ -1,3 +1,4 @@
+import { accentColorPropDef } from '@radix-ui/themes/props'
 import {
   LANGUAGES,
   TYPES,
@@ -60,6 +61,12 @@ export interface Pokemon {
   sprite?: string | null
   stats: PokemonStatResponse[]
   types: string[]
+}
+
+export interface UserAvatar {
+  iconColor: typeof accentColorPropDef.color.default
+  name: string
+  sprite: string
 }
 
 export type Pokedex = PokemonSummary[]

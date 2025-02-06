@@ -44,3 +44,9 @@ export const getLatestFlavorText = (
   flavorTexts: FlavorTextResponse[]
 ): string =>
   flavorTexts.findLast((f) => isEnglish(f.language.name))?.flavor_text || ''
+
+export const getRandomItem = <T>(array: readonly T[]): T =>
+  array[Math.floor(Math.random() * array.length)]
+
+export const getRandomId = (min: number, max: number): number =>
+  Math.floor(Math.random() * (max - min + 1)) + min

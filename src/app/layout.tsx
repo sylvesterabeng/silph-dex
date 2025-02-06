@@ -1,20 +1,18 @@
 import { Theme } from '@radix-ui/themes'
 import { Analytics } from '@vercel/analytics/next'
-import { Geist, Geist_Mono } from 'next/font/google'
+import { Protest_Guerrilla } from 'next/font/google'
 import React from 'react'
+
+import { Header } from '@components'
 
 import type { Metadata } from 'next'
 
 import './globals.scss'
 import '@radix-ui/themes/styles.css'
 
-const geistSans = Geist({
-  variable: '--font-geist-sans',
-  subsets: ['latin'],
-})
-
-const geistMono = Geist_Mono({
-  variable: '--font-geist-mono',
+const protest = Protest_Guerrilla({
+  variable: '--font-protest',
+  weight: '400',
   subsets: ['latin'],
 })
 
@@ -59,9 +57,12 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className={`${geistSans.variable} ${geistMono.variable}`}>
+      <body className={`${protest.variable}`}>
         {/* TODO: Add light mode option */}
-        <Theme appearance="dark">{children}</Theme>
+        <Theme appearance="dark">
+          <Header />
+          {children}
+        </Theme>
         <Analytics />
       </body>
     </html>
