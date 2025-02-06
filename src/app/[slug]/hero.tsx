@@ -11,11 +11,7 @@ interface Props {
 
 const Hero: React.FC<Props> = ({ pokemon }) => {
   return (
-    <Flex
-      direction={{ initial: 'column', sm: 'row' }}
-      gap={{ initial: '0', sm: '5' }}
-      align="center"
-    >
+    <Flex direction={{ initial: 'column', sm: 'row' }} gap="5" align="center">
       <Image
         className="pokemonDetail__sprite"
         src={pokemon.sprite || ''}
@@ -32,9 +28,11 @@ const Hero: React.FC<Props> = ({ pokemon }) => {
         <Text color="gray" size={{ initial: '1', sm: '2' }}>
           {pokemon.dexNumber}
         </Text>
-        <Heading size="9">{pokemon.name}</Heading>
-        <Text size={{ initial: '1', sm: '2' }}>{pokemon.genus}</Text>
+        <Heading size="9" mb="5">
+          {pokemon.name}
+        </Heading>
 
+        <Text size={{ initial: '1', sm: '2' }}>{pokemon.genus}</Text>
         <Text
           className="pokemonDetail__flavorText"
           size={{ initial: '1', sm: '2' }}
@@ -43,7 +41,8 @@ const Hero: React.FC<Props> = ({ pokemon }) => {
         >
           {pokemon.flavorText}
         </Text>
-        <Flex as="span" gap="2" mt="2">
+
+        <Flex as="span" gap="2" mt="3">
           {pokemon.types?.map((type) => (
             <TypeBadge key={type} type={type as PokemonType}></TypeBadge>
           ))}

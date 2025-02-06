@@ -1,4 +1,10 @@
 import {
+  Pokemon,
+  PokemonLanguage,
+  PokemonResponse,
+  PokemonSpeciesResponse,
+} from '@type'
+import {
   capitalize,
   capitalizeAndRemoveHypens,
   convertGenderRate,
@@ -9,13 +15,6 @@ import {
   getLatestFlavorText,
   isEnglish,
 } from '@utils'
-
-import {
-  Pokemon,
-  PokemonLanguage,
-  PokemonResponse,
-  PokemonSpeciesResponse,
-} from '@type'
 
 // Convert pokenode-ts results to local pokedex type
 const index = (
@@ -52,6 +51,7 @@ const index = (
       species.names.find((g) => isEnglish(g.language.name as PokemonLanguage))
         ?.name || '',
     sprite: pokemon.sprites.other?.['official-artwork'].front_default,
+    stats: pokemon.stats,
     types: pokemon.types.map((t) => t.type.name),
   }
 }

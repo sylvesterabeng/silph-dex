@@ -1,4 +1,8 @@
-import { LANGUAGES, TYPES } from 'pokenode-ts'
+import {
+  LANGUAGES,
+  TYPES,
+  PokemonStat as PokemonStatResponse,
+} from 'pokenode-ts'
 
 export type {
   Pokemon as PokemonResponse,
@@ -54,6 +58,7 @@ export interface Pokemon {
   genus: string
   name: string
   sprite?: string | null
+  stats: PokemonStatResponse[]
   types: string[]
 }
 

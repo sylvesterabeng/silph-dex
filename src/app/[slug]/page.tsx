@@ -6,6 +6,7 @@ import { fetchPokemon } from '@api/pokemon'
 import './styles.scss'
 import BasicInfoSection from './basicInfoSection'
 import Hero from './hero'
+import Stats from './stats'
 
 interface Props {
   params: Promise<{ slug: string }>
@@ -23,6 +24,7 @@ const Index: React.FC<Props> = async ({ params }) => {
     >
       <Hero pokemon={pokemon} />
       <BasicInfoSection basicInfo={pokemon.basicInfo} />
+      <Stats stats={pokemon.stats} />
     </Flex>
   )
 }

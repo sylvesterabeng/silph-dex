@@ -1,7 +1,4 @@
 .pokemonDetail__container {
-  width: 100%;
-  display: flex;
-  justify-content: center;
   padding: 64px 0;
 }
 
@@ -15,7 +12,7 @@
   max-width: 500px;
 }
 
-dl dt.rt-DataListLabel {
+.pokemonDetail__miscInfo dl dt.rt-DataListLabel {
   min-width: 64px;
 }
 

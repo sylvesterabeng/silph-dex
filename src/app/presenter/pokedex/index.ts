@@ -1,7 +1,6 @@
-import { convertToNationalDexNo } from '@utils'
-
 import { PokedexQuery } from '@generated/graphql'
 import { LANGUAGES, Pokedex, PokemonSummary, STATS } from '@type'
+import { convertToNationalDexNo } from '@utils'
 
 // Convert graphql results to local pokedex type
 const index = (pokedex: PokedexQuery['pokedex']): Pokedex => {
