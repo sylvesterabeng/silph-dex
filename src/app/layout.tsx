@@ -18,9 +18,38 @@ const geistMono = Geist_Mono({
   subsets: ['latin'],
 })
 
+const title = 'Silph Dex'
+const description =
+  'Silph Dex by Sylvester Abeng, a National Pokedex powered by PokeAPI. Easily explore, search, and discover all Pokemon stats, abilities, evolutions, and more in one app.'
+
 export const metadata: Metadata = {
-  title: 'Silph Dex',
-  description: 'Silph Dex by Sylvester Abeng',
+  applicationName: title,
+  title: title,
+  description: description,
+  keywords:
+    'pokemon, pokedex, dex, pokemon stats, pokemon abilities, pokemon evolutions, silph co, sylvester abeng',
+  openGraph: {
+    type: 'website',
+    url: 'https://silph-dex.vercel.app',
+    title: title,
+    description: description,
+    siteName: title,
+    images: [
+      {
+        url: 'https://silph-dex.vercel.app/ogp.png',
+      },
+    ],
+  },
+  twitter: {
+    site: 'https://silph-dex.vercel.app',
+    title: title,
+    description: description,
+    images: [
+      {
+        url: 'https://silph-dex.vercel.app/ogp.png',
+      },
+    ],
+  },
 }
 
 export default function RootLayout({
