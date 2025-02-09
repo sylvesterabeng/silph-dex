@@ -37,7 +37,6 @@ const Stats: React.FC<Props> = ({ stats }) => {
                 <Text style={{ width: '32px' }}>{s.base_stat}</Text>
                 <Box width={{ initial: '120px', sm: '240px' }}>
                   <Progress
-                    color="gray"
                     radius="small"
                     value={getStatPercentage(s.base_stat)}
                     size="3"

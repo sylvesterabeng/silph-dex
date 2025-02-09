@@ -59,7 +59,7 @@ export default function RootLayout({
     <html lang="en">
       <body className={`${protest.variable}`}>
         {/* TODO: Add light mode option */}
-        <Theme appearance="dark">
+        <Theme appearance="dark" accentColor="gray">
           <Header />
           {children}
         </Theme>
