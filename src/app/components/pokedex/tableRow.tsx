@@ -1,4 +1,4 @@
-import { Flex, Table } from '@radix-ui/themes'
+import { Flex } from '@radix-ui/themes'
 import Image from 'next/image'
 import Link from 'next/link'
 import React from 'react'
@@ -14,22 +14,21 @@ interface Props {
 
 const TableRow: React.FC<Props> = ({ pokemonSummary }) => {
   return (
-    <Table.Row align="center">
-      <Table.Cell className={`${styles.td} ${styles.avatarWrapper}`}>
+    <tr className={styles.tr}>
+      <td className={`${styles.td} ${styles.avatarWrapper}`}>
         <Image
           src={pokemonSummary.sprite || ''}
           className={styles.sprite}
           alt={`${pokemonSummary.name}-sprite`}
           width={40}
           height={40}
-          priority
         />
-      </Table.Cell>
-      <Table.Cell className={styles.td}>{pokemonSummary.dexNumber}</Table.Cell>
-      <Table.Cell className={styles.td}>
+      </td>
+      <td className={styles.td}>{pokemonSummary.dexNumber}</td>
+      <td className={styles.td}>
         <Link href={pokemonSummary.key}>{pokemonSummary.name}</Link>
-      </Table.Cell>
-      <Table.Cell className={styles.td}>
+      </td>
+      <td className={styles.td}>
         <Flex as="span" gap="1" className={styles.types}>
           {pokemonSummary.types?.map((type) => (
             <TypeBadge
@@ -38,8 +37,8 @@ const TableRow: React.FC<Props> = ({ pokemonSummary }) => {
             ></TypeBadge>
           ))}
         </Flex>
-      </Table.Cell>
-      <Table.Cell className={styles.td}>
+      </td>
+      <td className={styles.td}>
         <Flex as="span" direction="column">
           {pokemonSummary.abilities?.map((ability, idx) => (
             <span key={`${pokemonSummary.dexNumber}-type-${idx}`}>
@@ -47,24 +46,14 @@ const TableRow: React.FC<Props> = ({ pokemonSummary }) => {
             </span>
           ))}
         </Flex>
-      </Table.Cell>
-      <Table.Cell className={styles.td}>{pokemonSummary.stats.hp}</Table.Cell>
-      <Table.Cell className={styles.td}>
-        {pokemonSummary.stats.attack}
-      </Table.Cell>
-      <Table.Cell className={styles.td}>
-        {pokemonSummary.stats.defense}
-      </Table.Cell>
-      <Table.Cell className={styles.td}>
-        {pokemonSummary.stats.specialAttack}
-      </Table.Cell>
-      <Table.Cell className={styles.td}>
-        {pokemonSummary.stats.specialDefense}
-      </Table.Cell>
-      <Table.Cell className={styles.td}>
-        {pokemonSummary.stats.speed}
-      </Table.Cell>
-    </Table.Row>
+      </td>
+      <td className={styles.td}>{pokemonSummary.stats.hp}</td>
+      <td className={styles.td}>{pokemonSummary.stats.attack}</td>
+      <td className={styles.td}>{pokemonSummary.stats.defense}</td>
+      <td className={styles.td}>{pokemonSummary.stats.specialAttack}</td>
+      <td className={styles.td}>{pokemonSummary.stats.specialDefense}</td>
+      <td className={styles.td}>{pokemonSummary.stats.speed}</td>
+    </tr>
   )
 }
 
