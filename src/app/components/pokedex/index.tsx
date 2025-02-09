@@ -1,4 +1,4 @@
-import { Box, Flex, Heading, Table } from '@radix-ui/themes'
+import { Box, Flex, Heading } from '@radix-ui/themes'
 import React from 'react'
 
 import { Pokedex } from '@type'
@@ -18,57 +18,31 @@ const Index: React.FC<Props> = ({ label, pokedex }) => {
         {label}
       </Heading>
       <Box className={styles.wrapper}>
-        <Table.Root
-          className={styles.table}
-          variant="surface"
-          size={{ initial: '1', sm: '2' }}
-        >
-          <Table.Header>
-            <Table.Row align="center">
-              <Table.ColumnHeaderCell
-                className={styles.th}
-              ></Table.ColumnHeaderCell>
-              <Table.ColumnHeaderCell className={styles.th}>
-                No.
-              </Table.ColumnHeaderCell>
-              <Table.ColumnHeaderCell className={styles.th}>
-                Name
-              </Table.ColumnHeaderCell>
-              <Table.ColumnHeaderCell className={styles.th}>
-                Type
-              </Table.ColumnHeaderCell>
-              <Table.ColumnHeaderCell className={styles.th}>
-                Abilities
-              </Table.ColumnHeaderCell>
-              <Table.ColumnHeaderCell className={styles.th}>
-                HP
-              </Table.ColumnHeaderCell>
-              <Table.ColumnHeaderCell className={styles.th}>
-                Att
-              </Table.ColumnHeaderCell>
-              <Table.ColumnHeaderCell className={styles.th}>
-                Def
-              </Table.ColumnHeaderCell>
-              <Table.ColumnHeaderCell className={styles.th}>
-                S.Att
-              </Table.ColumnHeaderCell>
-              <Table.ColumnHeaderCell className={styles.th}>
-                S.Def
-              </Table.ColumnHeaderCell>
-              <Table.ColumnHeaderCell className={styles.th}>
-                Spd
-              </Table.ColumnHeaderCell>
-            </Table.Row>
-          </Table.Header>
-          <Table.Body>
+        <table className={styles.table}>
+          <thead className={styles.thead}>
+            <tr className={styles.tr}>
+              <th className={styles.th}></th>
+              <th className={styles.th}>No.</th>
+              <th className={styles.th}>Name</th>
+              <th className={styles.th}>Type</th>
+              <th className={styles.th}>Abilities</th>
+              <th className={styles.th}>HP</th>
+              <th className={styles.th}>Att</th>
+              <th className={styles.th}>Def</th>
+              <th className={styles.th}>S.Att</th>
+              <th className={styles.th}>S.Def</th>
+              <th className={styles.th}>Spd</th>
+            </tr>
+          </thead>
+          <tbody>
             {pokedex.map((pokemonSummary) => (
               <TableRow
                 key={pokemonSummary.dexNumber}
                 pokemonSummary={pokemonSummary}
               />
             ))}
-          </Table.Body>
-        </Table.Root>
+          </tbody>
+        </table>
       </Box>
     </Flex>
   )
