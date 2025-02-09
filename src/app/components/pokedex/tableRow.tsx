@@ -22,7 +22,6 @@ const TableRow: React.FC<Props> = ({ pokemonSummary }) => {
           alt={`${pokemonSummary.name}-sprite`}
           width={40}
           height={40}
-          priority
         />
       </td>
       <td className={styles.td}>{pokemonSummary.dexNumber}</td>
