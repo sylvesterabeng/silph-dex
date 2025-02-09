@@ -27,7 +27,7 @@ export const convertWeightToKilogram = (weight: number) => weight / 10
  */
 export const convertGenderRate = (rate: number): string[] =>
   rate > 0
-    ? [`Male: ${rate / 8}%`, `Female: ${1 - rate / 8}%`]
+    ? [`Male: ${(1 - rate / 8) * 100}%`, `Female: ${(rate / 8) * 100}%`]
     : ['Gender unknown']
 
 export const getEvfromStats = (stats: PokemonStatResponse[]): string[] => {
