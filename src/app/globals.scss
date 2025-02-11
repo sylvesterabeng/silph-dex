@@ -1,11 +1,9 @@
 $background: #111113;
 $foreground: #ededed;
 
-// TODO: fix background color
-// @media (prefers-color-scheme: dark) {
-//   $background: #111113;
-//   $foreground: #ededed;
-// }
+div.radix-themes.dark {
+  --default-font-family: var(--font-ubuntu-sans);
+}
 
 html,
 body {
@@ -19,7 +17,6 @@ html {
 }
 
 body {
-  font-family: Arial, Helvetica, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }

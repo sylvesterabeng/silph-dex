@@ -1,6 +1,6 @@
 import { Theme } from '@radix-ui/themes'
 import { Analytics } from '@vercel/analytics/next'
-import { Protest_Guerrilla } from 'next/font/google'
+import { Protest_Guerrilla, Ubuntu_Sans } from 'next/font/google'
 import React from 'react'
 
 import { Header } from '@components'
@@ -13,6 +13,12 @@ import '@radix-ui/themes/styles.css'
 const protest = Protest_Guerrilla({
   variable: '--font-protest',
   weight: '400',
+  subsets: ['latin'],
+})
+
+const geist = Ubuntu_Sans({
+  variable: '--font-ubuntu-sans',
+  weight: ['400', '500', '700'],
   subsets: ['latin'],
 })
 
@@ -57,7 +63,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className={`${protest.variable}`}>
+      <body className={`${geist.variable} ${protest.variable}`}>
         {/* TODO: Add light mode option */}
         <Theme appearance="dark" accentColor="gray">
           <Header />
