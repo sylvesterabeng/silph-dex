@@ -52,10 +52,15 @@
   line-height: var(--table-line-height);
   height: var(--table-cell-min-height);
   vertical-align: middle;
+  white-space: nowrap;
 }
 
 .avatarWrapper {
   width: 40px;
+
+  img {
+    vertical-align: middle;
+  }
 }
 
 .sprite {

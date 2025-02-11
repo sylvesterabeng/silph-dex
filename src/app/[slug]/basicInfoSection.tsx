@@ -1,6 +1,7 @@
-import { Box, DataList, Flex, Heading, Text } from '@radix-ui/themes'
+import { DataList, Flex, Text } from '@radix-ui/themes'
 import React from 'react'
 
+import { PageSection } from '@components'
 import { BasicInfo } from '@type'
 
 interface Props {
@@ -9,19 +10,10 @@ interface Props {
 
 const BasicInfoSection: React.FC<Props> = ({ basicInfo }) => {
   return (
-    <Box>
-      <Heading
-        as="h2"
-        align="center"
-        size={{ initial: '2', sm: '3' }}
-        mb="4"
-        color="gray"
-      >
-        Misc. Info
-      </Heading>
+    <PageSection label="Misc. Info">
       <Flex gap="8" align="start" className="pokemonDetail__miscInfo">
         <DataList.Root
-          size={{ initial: '1', sm: '2' }}
+          size="2"
           orientation={{ initial: 'vertical', sm: 'horizontal' }}
         >
           <DataList.Item>
@@ -63,7 +55,7 @@ const BasicInfoSection: React.FC<Props> = ({ basicInfo }) => {
         </DataList.Root>
 
         <DataList.Root
-          size={{ initial: '1', sm: '2' }}
+          size="2"
           orientation={{ initial: 'vertical', sm: 'horizontal' }}
         >
           <DataList.Item>
@@ -102,7 +94,7 @@ const BasicInfoSection: React.FC<Props> = ({ basicInfo }) => {
           </DataList.Item>
         </DataList.Root>
       </Flex>
-    </Box>
+    </PageSection>
   )
 }
 

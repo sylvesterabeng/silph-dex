@@ -25,17 +25,17 @@ const Hero: React.FC<Props> = ({ pokemon }) => {
         align={{ initial: 'center', sm: 'start' }}
         gap="1"
       >
-        <Text color="gray" size={{ initial: '1', sm: '2' }}>
+        <Text color="gray" size="2">
           {pokemon.dexNumber}
         </Text>
-        <Heading size="9" mb="5">
+        <Heading size="9" mb={{ initial: '2', sm: '5' }}>
           {pokemon.name}
         </Heading>
 
-        <Text size={{ initial: '1', sm: '2' }}>{pokemon.genus}</Text>
+        <Text size="2">{pokemon.genus}</Text>
         <Text
           className="pokemonDetail__flavorText"
-          size={{ initial: '1', sm: '2' }}
+          size="2"
           color="gray"
           align={{ initial: 'center', sm: 'left' }}
         >

@@ -20,7 +20,7 @@ const Index: React.FC<Props> = async ({ params }) => {
       className="pokemonDetail__container"
       direction="column"
       align="center"
-      gap="8"
+      gap="9"
     >
       <Hero pokemon={pokemon} />
       <BasicInfoSection basicInfo={pokemon.basicInfo} />

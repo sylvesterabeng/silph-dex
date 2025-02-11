@@ -1,6 +1,7 @@
-import { Box, DataList, Flex, Heading, Progress, Text } from '@radix-ui/themes'
+import { Box, DataList, Flex, Progress, Text } from '@radix-ui/themes'
 import React from 'react'
 
+import { PageSection } from '@components'
 import { PokemonStatResponse } from '@type'
 import { capitalizeAndRemoveHypens } from '@utils'
 
@@ -16,16 +17,7 @@ const Stats: React.FC<Props> = ({ stats }) => {
   }
 
   return (
-    <Box>
-      <Heading
-        as="h2"
-        align="center"
-        size={{ initial: '2', sm: '3' }}
-        mb="4"
-        color="gray"
-      >
-        Stats
-      </Heading>
+    <PageSection label="Stats">
       <DataList.Root size={{ initial: '1', sm: '2' }}>
         {stats.map((s) => (
           <DataList.Item key={s.stat.name}>
@@ -47,7 +39,7 @@ const Stats: React.FC<Props> = ({ stats }) => {
           </DataList.Item>
         ))}
       </DataList.Root>
-    </Box>
+    </PageSection>
   )
 }
 
