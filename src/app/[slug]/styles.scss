@@ -16,6 +16,10 @@
   min-width: 64px;
 }
 
+.rt-DataListRoot:where(.rt-r-orientation-horizontal) :where(.rt-DataListLabel) {
+  min-width: 88px;
+}
+
 .rt-DataListLabel:before,
 .rt-DataListValue:before {
   display: none;

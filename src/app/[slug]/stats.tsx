@@ -26,7 +26,7 @@ const Stats: React.FC<Props> = ({ stats }) => {
             </DataList.Label>
             <DataList.Value>
               <Flex gap="2" align="center">
-                <Text style={{ width: '32px' }}>{s.base_stat}</Text>
+                <Text style={{ width: '24px' }}>{s.base_stat}</Text>
                 <Box width={{ initial: '120px', sm: '240px' }}>
                   <Progress
                     radius="small"
