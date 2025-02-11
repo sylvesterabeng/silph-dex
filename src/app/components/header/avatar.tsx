@@ -49,7 +49,7 @@ const Index: React.FC = () => {
   }, [])
 
   return (
-    <Flex align="center" gap="2">
+    <Flex align="center" gap={{ initial: '1', sm: '2' }}>
       <Box className={styles.avatar}>
         <Avatar
           className={styles.sprite}
@@ -67,7 +67,7 @@ const Index: React.FC = () => {
           variant="soft"
         />
       </Box>
-      <Text size={{ initial: '1', sm: '2' }} color="gray">
+      <Text size={{ initial: '2', sm: '2' }} color="gray">
         <Skeleton
           width="100px"
           height={{ initial: '14px', sm: '20px' }}

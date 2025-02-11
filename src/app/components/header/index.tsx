@@ -17,7 +17,7 @@ const Index: React.FC = async () => {
       align="center"
     >
       <Link href="/">
-        <Text className={styles.icon} size={{ initial: '2', sm: '5' }}>
+        <Text className={styles.icon} size={{ initial: '3', sm: '4' }}>
           SILPH
         </Text>
       </Link>
