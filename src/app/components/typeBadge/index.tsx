@@ -55,7 +55,9 @@ const Index: React.FC<Props> = ({ type }) => {
 
   return (
     <Badge {...getBadge()}>
-      <Text className={styles.text}>{type}</Text>
+      <Text className={styles.text} size="2">
+        {type}
+      </Text>
     </Badge>
   )
 }
