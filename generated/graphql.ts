@@ -58775,7 +58775,9 @@ export type Subscription_RootPokemon_V2_Versionname_StreamArgs = {
   where?: InputMaybe<Pokemon_V2_Versionname_Bool_Exp>;
 };
 
-export type PokedexQueryVariables = Exact<{ [key: string]: never; }>;
+export type PokedexQueryVariables = Exact<{
+  NUMBER_OF_POKEMONS_TO_LOAD?: InputMaybe<Scalars['Int']['input']>;
+}>;
 
 
-export type PokedexQuery = { __typename?: 'query_root', pokedex: Array<{ __typename?: 'pokemon_v2_pokemon', id: number, key: string, stats: Array<{ __typename?: 'pokemon_v2_pokemonstat', base_stat: number, stat_id?: number | null }>, types: Array<{ __typename?: 'pokemon_v2_pokemontype', type?: { __typename?: 'pokemon_v2_type', name: string } | null }>, abilities: Array<{ __typename?: 'pokemon_v2_pokemonability', ability?: { __typename?: 'pokemon_v2_ability', abilityNames: Array<{ __typename?: 'pokemon_v2_abilityname', name: string, language_id?: number | null }> } | null }>, specy?: { __typename?: 'pokemon_v2_pokemonspecies', names: Array<{ __typename?: 'pokemon_v2_pokemonspeciesname', name: string, language_id?: number | null }> } | null, sprites: Array<{ __typename?: 'pokemon_v2_pokemonsprites', sprites: any }> }> };
+export type PokedexQuery = { __typename?: 'query_root', pokedex: Array<{ __typename?: 'pokemon_v2_pokemon', id: number, name: string, stats: Array<{ __typename?: 'pokemon_v2_pokemonstat', base_stat: number, stat_id?: number | null }>, types: Array<{ __typename?: 'pokemon_v2_pokemontype', type?: { __typename?: 'pokemon_v2_type', name: string } | null }>, abilities: Array<{ __typename?: 'pokemon_v2_pokemonability', ability?: { __typename?: 'pokemon_v2_ability', abilityNames: Array<{ __typename?: 'pokemon_v2_abilityname', name: string, language_id?: number | null }> } | null }>, specy?: { __typename?: 'pokemon_v2_pokemonspecies', key: string, names: Array<{ __typename?: 'pokemon_v2_pokemonspeciesname', name: string, language_id?: number | null }> } | null, sprites: Array<{ __typename?: 'pokemon_v2_pokemonsprites', sprites: any }> }> };

@@ -18,8 +18,8 @@ import {
 
 // Convert pokenode-ts results to local pokedex type
 const index = (
-  pokemon: PokemonResponse,
-  species: PokemonSpeciesResponse
+  species: PokemonSpeciesResponse,
+  pokemon: PokemonResponse
 ): Pokemon => {
   return {
     abilities: pokemon.abilities.map((a) => {

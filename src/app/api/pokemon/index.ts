@@ -6,13 +6,14 @@ import { Pokemon } from '@type'
 
 export const fetchPokemon = async (name: string): Promise<Pokemon> => {
   const api = new PokemonClient()
-  let pokemon
+  let species
   try {
-    pokemon = await api.getPokemonByName(name)
+    species = await api.getPokemonSpeciesByName(name)
   } catch {
     notFound()
   }
-  const species = await api.getPokemonSpeciesById(pokemon.id)
 
-  return convertToPokemon(pokemon, species)
+  const pokemon = await api.getPokemonById(species.id)
+
+  return convertToPokemon(species, pokemon)
 }

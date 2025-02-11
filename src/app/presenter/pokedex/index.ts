@@ -13,7 +13,7 @@ const index = (pokedex: PokedexQuery['pokedex']): Pokedex => {
         )
       }),
       dexNumber: convertToNationalDexNo(pokemon.id),
-      key: pokemon.key,
+      key: pokemon.specy?.key || pokemon.id.toString(),
       name:
         pokemon.specy?.names.find((n) => n.language_id === LANGUAGES.EN)
           ?.name || '',

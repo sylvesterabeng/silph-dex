@@ -9,17 +9,21 @@ const client = new ApolloClient({
   cache: new InMemoryCache(),
 })
 
-const NUMBER_OF_POKEMONS_TO_LOAD =
-  process.env.NUMBER_OF_POKEMONS_TO_LOAD || 10000
-
 const NATIONAL_POKEDEX = gql`
-  query pokedex {
+  query pokedex(
+    $OFFSET_OF_POKEMONS_TO_LOAD: Int
+    $NUMBER_OF_POKEMONS_TO_LOAD: Int
+  ) {
     pokedex: pokemon_v2_pokemon(
       order_by: { id: asc }
-      where: { id: { _lte: ${NUMBER_OF_POKEMONS_TO_LOAD} } }
+      where: {
+        id: {
+          _gte: $OFFSET_OF_POKEMONS_TO_LOAD
+          _lte: $NUMBER_OF_POKEMONS_TO_LOAD
+        }
+      }
     ) {
       id
-      key: name
       stats: pokemon_v2_pokemonstats {
         base_stat
         stat_id
@@ -38,6 +42,7 @@ const NATIONAL_POKEDEX = gql`
         }
       }
       specy: pokemon_v2_pokemonspecy {
+        key: name
         names: pokemon_v2_pokemonspeciesnames {
           name
           language_id
@@ -53,6 +58,11 @@ const NATIONAL_POKEDEX = gql`
 export const fetchPokedex = async () => {
   const { data } = await client.query<PokedexQuery>({
     query: NATIONAL_POKEDEX,
+    variables: {
+      OFFSET_OF_POKEMONS_TO_LOAD: process.env.OFFSET_OF_POKEMONS_TO_LOAD || 0,
+      NUMBER_OF_POKEMONS_TO_LOAD:
+        process.env.NUMBER_OF_POKEMONS_TO_LOAD || 10000,
+    },
   })
 
   return convertToPokedex(data.pokedex)
